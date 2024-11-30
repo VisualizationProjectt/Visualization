@@ -9,6 +9,7 @@ library(RColorBrewer)
 library(plotly)
 
 url <- "C:\\Users\\Я\\OneDrive\\Рабочий стол\\lpnu lab\\4 curs\\Visualization\\Project\\Migration_Flows_from_2010_to_2019.csv"
+# url <- "~/Developer/Visualization/Migration_Flows_from_2010_to_2019.csv"
 us_migration_data <- read.csv(url)
 
 filtered_data <- us_migration_data[!grepl("^abroad_", us_migration_data$from), ]
@@ -86,6 +87,15 @@ heatmap(
 )
 #----------------------------------------------------------------------------------
 
+heatmap(
+  migration_matrix,
+  scale = "none", 
+  col = colorRampPalette(c("white", "blue"))(50),
+  main = "Migration Heatmap with Dendrogram",
+  xlab = "To (Current State)",
+  ylab = "From",
+  margins = c(5, 10)
+)
 
 
 
